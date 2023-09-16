@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Form</title>
+    <link rel="stylesheet" href="/static/css/addprojects.css">
+    <script src="/static/js/addprojects.js"></script>
+    <!-- Include any additional stylesheets or scripts you need -->
+</head>
+
+<!--Html Code(Tere liye)-->
+
+<body>
+
+    <div class="container">
+        <h1>Add Project</h1>
+        <form method="post" id="projectForm">
+            {% csrf_token %}
+            <label for="projectName">Project Name:</label>
+            <input type="text" id="projectName" name="projectName" required>
+
+            <label for="projectDescription">Project Description:</label>
+            <textarea id="projectDescription" name="projectDescription" rows="6" style="resize: none;"
+                required></textarea>
+
+            <label for="projectTechStack">Project Tech Stack:</label>
+            <input type="text" id="projectTechStack" name="projectTechStack" required>
+
+            <div>
+                <h3>Upload Images(WAIT FOR YOUR IMAGES TO DISPLAY HERE..!!!)</h3>
+                <input type="file" id="fileInput" multiple>
+            </div>
+            <div id="uploadedImages"></div>
+
+            <label for="userName">Your Name:</label>
+            <input type="text" id="userName" name="userName" required>
+
+            <label for="userEmail">Your Email:</label>
+            <input type="text" id="userEmail" name="userEmail" required>
+
+            <label for="collegeName">College Name:</label>
+            <input type="text" id="collegeName" name="collegeName" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <input type="text" id="imgurLinks" name="imgurLinks">
+
+            <button type="submit">Submit Project</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../static/css/project.css">
+    <script src="../static/js/project.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Featured Projects</h1>
+    </header>
+
+    <main>
+        <section id="search-form">
+            <h2>Search Projects</h2>
+            <form id="project-search-form">
+                <input type="text" id="search-input" name="search-input" placeholder="Search...">
+                <select id="filter" name="filter">
+                    <option value="all">All</option>
+                    <option value="topic">Topic</option>
+                    <option value="techStack">Tech Stack</option>
+                    <option value="university">University</option>
+                </select>
+                <button type="button" id="search-button">Search</button>
+            </form>
+        </section>
+
+        <section id="project-list">
+            <!-- Projects will be added dynamically with JavaScript -->
+        </section>
+    </main>
+
+    <!-- Project template (hidden by default) -->
+    <div id="project-template" style="display: none;">
+        <h3></h3>
+        <p>Description: </p>
+        <p>Tech Stack: </p>
+        <p>Created by: </p>
+        <p>Email: </p>
+        <p>College: </p>
+        <p>State: </p>
+        <p>City: </p>
+        <div class="image-container"></div>
+    </div>
+    <div class="project-container" id="project-list">
+        <!-- Projects will be added dynamically with JavaScript -->
+    </div>
+
+</body>
+
+</html>

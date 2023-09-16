@@ -1,0 +1,91 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const searchButton = document.getElementById("search-button");
+    const projectList = document.getElementById("project-list");
+    const searchInput = document.getElementById("search-input");
+    const filterDropdown = document.getElementById("filter");
+    const description = document.getElementById('description');
+    const points = document.querySelectorAll('#pointList li');
+
+    
+    let projectsData; // Define a variable to store the fetched data
+
+    // Fetch data from the JSON file
+    fetch("projects.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            projectsData = data; // Store the fetched data in the variable
+            populateProjects(data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+
+    function populateProjects(projects) {
+        projectList.innerHTML = "";
+        for (const project of projects) {
+            const listItem = document.createElement("li");
+            listItem.className = "project";
+            listItem.innerHTML = `
+                <h2>${project.title}</h2>
+                <p>${project.description}</p>
+                <p>Topic: ${project.topic} | Tech Stack: ${project.techStack} | University: ${project.university}</p>
+            `;
+            projectList.appendChild(listItem);
+        }
+    }
+
+    //sign in waala hai
+    // JavaScript to toggle the account popup
+    const accountIcon = document.getElementById('account-icon');
+    const accountPopup = document.getElementById('account-popup');
+
+    accountIcon.addEventListener('click', function () {
+        if (accountPopup.style.display === 'block') {
+            accountPopup.style.display = 'none';
+        } else {
+            accountPopup.style.display = 'block';
+        }
+    });
+
+
+    function animatePoints() {
+        points.forEach((point, index) => {
+          setTimeout(() => {
+            point.style.opacity = '1';
+            point.style.transform = 'translateY(0)';
+          }, index * 1000); // Adjust the delay (in milliseconds) as needed
+        });
+      }
+      window.onload =animatePoints();
+
+    searchButton.addEventListener("click", function () {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filter = filterDropdown.value;
+
+        let filteredProjects = projectsData; // Use the variable containing the data
+
+        // Filter based on selected filter criteria
+        if (filter !== "all") {
+            filteredProjects = projectsData.filter((project) => project[filter].toLowerCase().includes(searchTerm));
+        } else {
+            // If "All" is selected, show all projects that contain the search term in any field
+            filteredProjects = projectsData.filter((project) => {
+                for (const key in project) {
+                    if (project[key].toLowerCase().includes(searchTerm)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }
+
+        // Populate the filtered projects
+        populateProjects(filteredProjects);
+    });
+});
+

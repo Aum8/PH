@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #001f3f 20%, #a0d6b4 50%);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #a0d6b4;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #001f3f;
+}
+
+.form {
+    width: 300px;
+    text-align: center;
+}
+
+.form h2 {
+    margin-bottom: 15px;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    background-color: lightblue;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #0056b3;
+    color:black;
+}
+
+
+
+.welcome {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome h2 {
+    margin-bottom: 10px;
+}
+
+.welcome a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.welcome a:hover {
+    text-decoration: underline;
+}
